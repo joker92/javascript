@@ -1,0 +1,32 @@
+<<html>
+<head>
+	<title>
+		javascript
+
+	</title>
+</head>
+	<body>
+		<h1>ciao</h1>
+		<!--console.log stammpa la scritta sulla console ...alert invece stampa nella pagina normale del broswer-->
+
+		<button onclick="console.log('ciao')">clik me!</button>
+		
+		<script>
+		var start=new Date;
+			setTimeout(
+				// il settimeout vuole sempre una  callbeck vuole sempre un tempo in millisecondi 
+				function(){
+					var end =new Date;
+					console.log("la tua funzione è morta dopo",end-start,"ms")
+
+				}
+
+
+				,0);
+
+
+			alert("ciao sono un simpatico allert");
+
+		</script>
+	</body>
+</html>
