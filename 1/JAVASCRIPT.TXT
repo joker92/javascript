@@ -1,0 +1,95 @@
+
+
+
+
+questa e una funzione :
+var a =new Date(anno, mese,girono, ora);
+
+
+questo e un metodo :
+
+
+a.getDate()-->ritorna il giorno del mese.
+
+getDay()-->ritorna il giorno della settimana 
+
+getFullYear()-->ritorna  le 4 cifre l anno
+
+getHours()-->ritorna l ora
+
+getMilliseconds()--->ritorna i millisecondi
+getMinutes()-->ritorna i minuti
+getSecond()-->ritorna i secondi 
+
+
+
+sapere quanti anni sono passati dalla data tua a oggi 
+
+
+
+var a = new Date();
+var b =new Date(1992,2,2);
+
+
+var c=a.getFullYear();
+var d=b.getFullYear();
+
+
+
+alert(c-d);
+
+
+-------------------------------------------------------------------------------
+
+
+calcolare nella quanti milli secondi sono passati da oggi alla tua data di 	nascita 
+
+
+var a = new Date();
+var b =new Date(1992,2,2);
+
+
+
+
+alert(a-b);
+
+
+
+
+
+
+
+if ed else funziona con if condizione se si entro nel ramo vero se no entro nel else ramo falso 
+
+
+
+
+---------------------------------------------------
+
+sapere se il tuo anno e bisestile o no 
+
+
+
+var a =new Date ();
+var b=new Date(1992,2,2);
+
+
+
+
+
+bisestile(a.getFullYear());
+bisestile(b.getFullYear());
+
+
+function bisestile(a){
+	if(( a %4 ==0 && a %100!=0)  || a %400==0){
+		console.log(a+" bisestile ");
+}
+	else{ 
+		console.log (a+" non e bisestile ");
+  }
+}
+
+
+-----------------------------------------------------------------------
+
