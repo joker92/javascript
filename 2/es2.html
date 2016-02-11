@@ -1,0 +1,31 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/es1.css">
+</head>
+<body>
+	<h1> ciao sono h1 </h1>
+	<h2> ciao sono h2 </h2>
+	<h1> ciao sono h1 </h1>
+	<h2> ciao sono h2 </h2>
+	<h1> ciao sono h1 </h1>
+	<h2> ciao sono h2 </h2>
+
+	<button id="target"> invia </button>
+	<button id="remove"> rimuovi </button>
+
+
+	<button id="add"> prova </button>
+
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js">	</script>
+	<script>
+	//cambia il ciao sonon h1 e gli mette un indice index(0,1,2) con una freccia e !!!  index e il posto che occupa l array (0123) oldhtml e tutto l html che occupa la pagina
+
+	$('h1').html (function (index,oldHtml){
+		return index+'-->'+oldHtml+'!!!';
+	});
+	</script>
+
+	<script src="js/es2.js"></script>
+
+</body>
+</html>

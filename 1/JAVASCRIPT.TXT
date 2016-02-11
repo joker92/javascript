@@ -1,3 +1,85 @@
+Javascript:
+-Linguaggio Javascript è molto elastico
+-Non si rompe in caso di errore
+-Copy and paste spesso funziona
+-Librerie Open Source spesso fanno il loro dovere.
+
+JSFiddle-> utile per eseguire javascript
+Developer Tool Console
+Editor
+Browser
+JS engine
+
+Linguaggio di scripting orientato agli oggetti, utilizzato in web browser per pagine dinamiche e per migliorare la user interaction.
+
+Brendan Eich.
+Creatore del Javascript, ora CTO a Mozilla Corp.
+
+John Resig.
+
+Douglas Crockford.
+
+Nicholas C. Zakas.
+
+- codice inline 
+
+- blocco di codice nella pagina
+
+-javascript esterno
+
+var variabile = 5;
+
+variabili sono case sensitive (variabile != Variabile)
+
+è possibile assegnare ad una variabile il contenuto di un'altra variabile.
+es. mySecondVariable = myFirstVariable
+
+Array si definiscono in questo modo:
+var myArray = newArray()
+
+Typeof()--> stampi il tipo di variabile.
+
+new Date() stampa la data e l'ora in questo momento.
+
+All'interno di date possiamo passare parametri (anno,mese,giorno,ora,minuto,secondo,millisecondo).
+
+I metodi, eseguiti sulle istanze, si eseguono con questa struttura: oggetto.metodo();
+
+getDate()-> Ritorna il giorno del mese.
+getDay()-> Ritorno il giorno della settimana
+getFullYear()-> Ritorna l'anno
+getHours()-> Ritorna l'ora
+getMilliseconds()-> Ritorna i millisecondi
+getMinutes()-> Ritorna i minuti
+getSeconds()-> Ritorna i secondi
+
+Per ricavare i millisecondi da quando sono nato:
+var a = new Date(1994,7,18);
+var b = new Date();
+
+alert(b-a);
+
+var a = new Date();
+var b = new Date(1988,9,11);
+
+Per ricavare l'anno bisestile
+function bisestile(a){
+if ((a %4 == 0 && a % 100 != 0) || a %400 == 0){
+	console.log(a+" è bisestile");
+}
+	else{
+		console.log(a+" non è bisestile");
+	}
+}
+
+bisestile(b.getFullYear());
+bisestile(a.getFullYear());
+
+"use strict" 
+
+lo scope in javascript è il corpo della funzione, var è importantissimo da utilizzare.
+
+
 
 
 
@@ -92,4 +174,605 @@ function bisestile(a){
 
 
 -----------------------------------------------------------------------
+
+
+
+stampare oggi e venerdi e estrarre data e minuti e il giorno da now :
+
+
+
+var oggi = new Date(),
+    giorno = ["domenica", "lunedì", "martedì", "mercoledì","giovedì", "venerdì","sabato"];
+ var a ='oggi e il 29 gennaio ,'
+console.log(a,"Oggi è " + giorno[oggi.getDay()],' '+ oggi.getHours(),':'+oggi.getMinutes());
+
+
+
+
+--------------------------------------------------------------------------------------------
+
+
+porzioni di codice riutilizzabile 
+
+
+Anonime (senza nome)
+
+
+
+
+normali (con nome)
+
+
+le funzioni possono ritornare funzioni 
+
+
+----------------------------------------------------------------------------------------
+
+
+
+Esercizio calcolatrice javascript:
+
+
+
+
+            function plus(a,b) {
+                return (a + b);
+            }
+
+            function minus(a,b) {
+                return (a - b);
+            }
+
+            function multiply(a,b) {
+                return (a * b);
+            }
+
+            function divide(a,b) {
+                return (a / b);
+            }
+
+function calculetor(a,b,c){
+		if(arguments.length!=3){
+    return "wrong";
+    }
+    if(typeof(a)!="number"){
+    return"wrong";
+    }
+		switch (c) {
+                    case '+':
+                        w = plus(a, b);
+                        return w;
+                        break;
+
+                    case '-':
+                        w = minus(a, b);
+                      return w;
+                      break;
+
+                    case '*':
+                        w = multiply(a, b);
+                       return w;
+                       break;
+
+                    case '/':
+                        w = divide(a, b);
+                       return w;
+                       break;
+			 default:
+                      return "errore";
+}
+}
+console.log(calculetor(5,5,'+'));
+
+
+
+--------------------------------------------------------------------------
+
+
+
+ l oggetto math permette di eseguire calcoli matematici piu complessi
+
+math.random() genera numeri casuali
+math.ceil() arrotonda al numero successivo 1.5 -->2
+marh.sqrt(num) radice quadrata
+math.pow(base,esponente) pateza 
+
+
+
+--------------------------------------------------------------------------
+
+per creare un nuovo oggetto utiliziamo  il new
+
+
+
+var person= new Object();
+
+person.name="giuseppe"; //proprieta,ovvero aggiungo un campo all'istanza
+person.surname="trz";
+
+person.getFullName=function(){
+return this.name+" "+this.surname;
+}
+
+
+console.log(
+person.getFullName()
+);
+
+
+.--------------------------------------------------------------	
+
+
+
+
+calcolare il periometro del triangolo con javascript
+
+
+
+
+
+
+
+
+
+
+var triangolo= new Object();
+
+triangolo.lato1=15; //proprieta,ovvero aggiungo un campo all'istanza
+triangolo.lato2=10;
+
+triangolo.lato3= 8;
+
+
+triangolo.getArea=function(){
+var p=(this.lato1+this.lato2+this.lato3)/2;
+return Math.sqrt(p*(p-this.lato1)*(p-this.lato2)*(p-this.lato3))
+}
+
+
+console.log(triangolo.getArea()
+
+
+);
+
+
+
+
+
+
+--------------------------------------------------------
+
+per creare un nuovo oggetto che pero prende sempr la classe di Object :
+
+
+
+function Person(name,surname,age){
+		this.name=name;
+    this.surname=surname;
+    this.age=age;
+
+}
+
+var person =new Person();
+
+
+console.dir(person);
+
+
+
+sayName --> concatena nome e cognome ..
+
+
+-----------------------------------------------
+
+
+
+per aggiungere una nuovo campo  dopo che abbiamo scritto tanto codice si usa il prototype:
+
+Person.prototype.aaetAge=function(){
+    
+    return this.age;
+    }
+
+
+
+
+
+----------------------------------------------------------
+
+va ad aggiungere a tutte le classi he andiamo a richiamare  e quelle in cascata senza andarla a ritrovare  :
+
+
+
+
+Person.prototype={
+    constructor:Person,
+    sayName:function(){
+    console.log(this.name+""+this.surname);
+    }
+    
+    }
+
+
+
+
+-----------------------------------------------------------------
+
+funzione per vedere se il numero e primo o no :
+
+function isPrime (num){
+			if (num<=0 || num ==1){
+      
+      		return false ;
+      }
+
+				for(var i=2;i<num; i++){
+        if(num % i ==0)
+        		return false ;
+ 				return true;
+
+
+---------------------------------------------------------------------------
+
+
+stampare con alert con una funzione creando  una classe numero :
+
+function isPrime (num){
+			if (this.valore<=0 || this.valore ==1){
+      
+      		return false ;
+      }
+
+				for(var i=2;i<this.valore; i++){
+        if(this.valore % i ==0)
+        		return false ;
+        }
+							return true ;
+}
+
+
+function Numero (valore){
+
+			this.valore=valore;
+      this.isPrime=isPrime;
+      
+      
+}
+
+
+var n=new Numero(3);
+alert(n.isPrime());
+
+
+
+
+---------------------------------------
+
+per creare un oggetto :
+
+
+var a = new Object ();
+
+e gli pasiamo delle proprieta :
+
+a.nome="andrea";
+a.age="28";
+
+
+se no ce un altro metodo per creare oggetti ;
+
+
+var a ={
+	nome:"andrea",
+	age=28  --->l ultimo elemento inserito non si mette la virgola 
+} 
+
+console.log(a.constructor);
+
+
+-------------------------
+
+ Modo letterale 
+var c ={
+	proprieta... nome:"whiski"
+	proprieta..
+	Full Name : function () verso :function () ;{..... metodo dill istanza 
+
+			per stampare il verso chiamo alert (cane.verso())---> senza parentsi nel verso stampa la parola function perche lo prende come oggetto ...
+
+-------------------------------------------------------------------------------------
+
+ 
+il javascript hanno compipato da java creando un codice vero e proprio creando una classe cane 
+
+
+
+
+function  Cane(nome ){
+	this.nome= nome ;------>proprieta
+	this.verso= function (){   -------------------->metodo 	
+
+		return "bau";	
+
+}
+
+
+}
+
+per creare altre classi cani ....
+
+var Lucky=new Cane ("lucky");
+
+
+
+----------------------------------
+
+stampare il nome e il verso passandoglielo noi :
+
+
+
+
+function Cane( nome, verso){
+
+		this.nome=nome;
+		this.verso=function (){
+    
+    		return verso;
+    
+    }
+}
+
+
+
+var pippo =new  Cane("pippo","bau");
+
+
+
+------------------------
+
+
+costrutto ternario
+
+ed  e variabile == (condizione ) null ? se e  vera stampo "ciao ": se e falsa stampo "miao ";
+
+
+
+
+---------------------------------------------------------
+
+
+stampare nomi cani e versi diversi 
+
+
+
+
+
+function Cane( nome, callback){
+
+		this.nome= nome?nome:"lucky";
+		this.verso= callback?callback:function(){
+    	console.log("bau");
+    }
+
+  }
+
+
+
+var lucky= new Cane();
+
+var toby= new Cane("toby");
+var lord = new Cane("lord", function() { alert("buongiorno madame");});
+
+
+
+console.log(lucky.verso);
+console.dir(toby.verso);
+console.dir(lord.verso);
+
+-------------------------------------------------------------
+
+calcolare il quadrato e cerchio con la forma geometrica  senza nessun parametro :
+
+
+
+function FormaGeometrica(){
+			this.calcoloArea=function(){
+   
+      }
+}
+
+function Quadrato(l1){
+
+	this.l1=l1;
+  this.calcoloArea=function(){
+  return (this.l1 * this.l1);
+  }
+
+}
+
+function Cerchio(r){
+		this.r=r;
+    this.pi=Math.PI;
+    this.area=function calcoloArea(){
+    
+		return (this.r * this.r * this.pi)
+}
+
+}
+
+
+	var f =new FormaGeometrica();
+var a =new Quadrato(1);
+var b = new Cerchio(6);
+
+console.log(a.calcoloArea());
+console.log(b.area());
+
+
+
+
+
+-----------------------------------------------------------------------
+	esercizio fare classi nuove su cani
+
+
+
+function Dog(name){
+this.name=name;
+
+}
+var dog = new Dog("whisky");
+var cat={ name :"ciccio"};
+
+
+console.dir(dog);
+console.dir(cat);
+
+-----------------------------------------------------------
+
+
+
+function FormaGeometrica(){
+			this.calcoloArea=function(){
+   console.log("sono una formageometrica");
+      }
+}
+
+function Quadrato(l1){
+
+	this.l1=l1;
+ /* this.calcoloArea=function(){
+  return (this.l1 * this.l1);
+  }*/
+
+}
+
+function Cerchio(r){
+		this.r=r;
+    this.pi=Math.PI;
+    this.area=function calcoloArea(){
+    
+		return (this.r * this.r * this.pi)
+}
+
+}
+
+Cerchio.prototype= new FormaGeometrica();
+Quadrato.prototype= new FormaGeometrica();
+
+var a =new Quadrato(1);
+var b = new Cerchio(6);
+
+console.log(a.calcoloArea());
+console.log(b.area());
+console.log(a.toString());
+console.dir(a);
+
+
+-----------------------------------------------------------
+
+
+esercizio di sopra andando a passare la if :
+
+
+function FormaGeometrica(){
+			this.calcoloArea=function(){
+  if(this.hasOwnProperty('pi')){
+  return (this.r * this.r * this.pi);
+   
+  }else{
+  return (this.l1* this.l1);
+  }
+  
+      }
+}
+
+function Quadrato(l1){
+
+	this.l1=l1;
+ /* this.calcoloArea=function(){
+  return (this.l1 * this.l1);
+  }*/
+
+}
+
+function Cerchio(r){
+		this.r=r;
+    this.pi=Math.PI;
+   /* this.calcoloArea=function calcoloArea(){
+    
+		return (this.r * this.r * this.pi)
+}*/
+
+}
+
+Cerchio.prototype= new FormaGeometrica();
+Quadrato.prototype= new FormaGeometrica();
+
+var a =new Quadrato(1);
+var b = new Cerchio(6);
+var f= new FormaGeometrica();
+
+
+console.log(a.calcoloArea());
+console.log(b.calcoloArea());
+console.log(a.toString());
+console.dir(a);
+console.log(f.calcoloArea());
+
+------------------------------------------------------------------
+
+
+esercizio array dove calcoli media aggiungi elementi ,rimuovi :
+
+
+
+
+
+function Media(){
+  this.elementi = new Array();
+  this.cntElem = 0;
+  this.aggiungi = function(numero){
+    this.elementi.push(numero);
+    this.cntElem=this.elementi.length;
+  }
+  this.ordinaArray = function() {
+    this.elementi.sort(
+      function(a, b) {
+        return a - b;
+      }
+    );
+  }
+  this.calcolaMedia = function(){
+    var somma = 0;
+    for (var i = 0; i < this.cntElem; i++) {
+      somma = somma+this.elementi[i];
+    }
+    return somma/this.cntElem;
+  }
+  this.rimuovi = function () {
+    this.elementi.pop();
+    this.cntElem=this.elementi.length;
+  }
+  this.toString = function(){
+    var stringa = "";
+    for (var i = 0; i < this.cntElem; i++) {
+      stringa+=this.elementi[i]+"-";
+    }
+    return stringa;
+  }
+}
+var m = new Media();
+for (var i = 0; i < 10; i++) {
+  m.aggiungi(10*i);
+}
+for (var i = 0; i < 5; i++) {
+  m.rimuovi();
+}
+m.calcolaMedia();
+m.ordinaArray();
+console.log(m.toString());
+
+
+
 
